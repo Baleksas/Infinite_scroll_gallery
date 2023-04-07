@@ -1,38 +1,57 @@
-.App {
-  text-align: center;
+.container {
+  width: 90%;
+  margin: 0 auto;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* .gallery {
+  display: grid;
+  margin: 0 auto;
+  grid-template-columns: repeat(auto-fit, 280px);
+  grid-gap: 15px;
+} */
+.grid {
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.image-wrapper {
+  margin: 5px 5px;
+  position: relative;
+  width: max-content;
 }
+.image-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: 0.5s ease;
+  background-color: rgba(0, 0, 0, 0.5);
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
+  text-align: center;
+  justify-content: space-around;
+}
+.image-overlay:hover {
+  opacity: 1;
 }
 
-.App-link {
-  color: #61dafb;
+/* Buttons */
+
+.button-fav {
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.isFavourite {
+  background-color: #cfc929;
+}
+
+@media (min-width: 320px) {
+  /* smartphones, iPhone, portrait 480x320 phones */
+}
+@media (min-width: 961px) {
+  /* tablet, landscape iPad, lo-res laptops ands desktops */
+}
+@media (min-width: 1281px) {
+  /* hi-res laptops and desktops */
 }
