@@ -1,34 +1,30 @@
 import React, { useEffect, useState } from "react";
 import { createClient } from "pexels";
 import Image from "./Image";
+import { useLocalStorage } from "../hooks/useLocalStorage";
 
 const client = createClient(process.env.REACT_APP_API_KEY as string);
 
 const Gallery = () => {
   const [data, setData]: any = useState([]);
   const [page, setPage] = useState(1);
-  const [favourite, setFavourite] = useState<number[]>([]);
+
+  const [favourite, setFavourite] = useLocalStorage<number[]>("favourite", []);
 
   useEffect(() => {
     client.photos.curated({ per_page: 10, page: page }).then((data: any) => {
       setData(data.photos);
     });
-
-    const saved = JSON.parse(localStorage.getItem("favourite") as string);
-    console.log(saved);
-    if (saved) setFavourite(saved);
   }, []);
 
   const addFavourite = (id: number) => {
-    console.log("currently fav", favourite);
-    console.log("adding...", id);
-    setFavourite([...favourite, id]);
+    if (favourite.includes(id)) {
+      console.log("exists");
+      const newFav = favourite.filter((item: number) => item !== id);
+      console.log("new", newFav);
+      setFavourite(newFav);
+    } else setFavourite([...favourite, id]);
   };
-  useEffect(() => {
-    console.log("afer adding...", favourite);
-
-    localStorage.setItem("favourite", JSON.stringify(favourite));
-  }, []);
 
   return (
     <div className="gallery">

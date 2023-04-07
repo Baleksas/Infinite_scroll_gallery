@@ -21,8 +21,8 @@ const Image = ({
   useEffect(() => {
     if (favourite.includes(id)) {
       setIsFavourite(true);
-    }
-  }, []);
+    } else setIsFavourite(false);
+  }, [favourite]);
 
   return (
     <div className="image-wrapper">
