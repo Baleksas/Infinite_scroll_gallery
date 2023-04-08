@@ -15,7 +15,12 @@ export default function useGetPhotos(pageNumber: number) {
     client.photos
       .curated({ per_page: 10, page: pageNumber })
       .then((data: any) => {
-        // setData(data.photos);
+        // Following pages first two images are from the previous page - duplicates
+        if (pageNumber > 0) {
+          data.photos.shift();
+          data.photos.shift();
+        }
+
         setData((prevData): any => [...prevData, ...data.photos]);
         setHasMore(data.photos.length > 0);
         setLoading(false);

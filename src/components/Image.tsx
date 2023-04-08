@@ -5,12 +5,12 @@ type ImageProps = {
   src: string;
   photographer: string;
   favourite: number[];
-  addFavourite: any;
-  isLast?: boolean;
+  toggleFavourite: any;
+  isLast: any;
 };
 
 const Image = ({
-  addFavourite,
+  toggleFavourite,
   id,
   src,
   photographer,
@@ -25,20 +25,14 @@ const Image = ({
     } else setIsFavourite(false);
   }, [favourite]);
 
-  const observer = useRef<any>();
-
-  const lastPhotoElement = useCallback((node: any) => {
-    console.log(node);
-  }, []);
-
   return (
-    <div ref={isLast ? lastPhotoElement : null} className="image-wrapper">
+    <div ref={isLast} className="image-wrapper">
       <div className="image-overlay">
         <div className="overlay-content">
           <span>{photographer}</span>
           <button
             className={`${isFavourite && "isFavourite"} button-fav`}
-            onClick={() => addFavourite(id)}
+            onClick={() => toggleFavourite(id)}
           >
             Favourite
           </button>
