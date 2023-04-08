@@ -22,7 +22,15 @@ const Image = ({
     <div ref={isLast as LegacyRef<HTMLDivElement>} className="image-wrapper">
       <div className="image-overlay">
         <div className="overlay-content">
+          {alt !== "" && (
+            <React.Fragment>
+              <span>{alt}</span>
+              <span className="divider"></span>
+            </React.Fragment>
+          )}
           <span>{photographer}</span>
+          {alt === "" && <span className="divider"></span>}
+
           <button
             className={`${isFavourite && "isFavourite"} button-fav`}
             onClick={() => toggleFavourite(id)}
