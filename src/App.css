@@ -28,6 +28,10 @@
   opacity: 0;
   transition: 0.5s ease;
   background-color: rgba(0, 0, 0, 0.5);
+}
+.overlay-content {
+  width: max-content;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   color: white;
@@ -41,6 +45,12 @@
 /* Buttons */
 
 .button-fav {
+  outline: none;
+  background-color: transparent;
+  color: white;
+  padding: 5px 0;
+  border: 1px solid white;
+  border-radius: 20px;
 }
 
 .isFavourite {
