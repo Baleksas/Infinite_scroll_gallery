@@ -55,7 +55,7 @@ const Gallery = () => {
               key={item.id}
               id={item.id}
               placeholderSrc={item.src.small}
-              src={item.src.original}
+              src={item.src.large2x}
             />
           );
         })}
