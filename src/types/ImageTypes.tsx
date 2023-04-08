@@ -1,5 +1,6 @@
 export type ImageProps = {
   id: number;
+  placeholderSrc: string;
   src: string;
   alt: string | null;
   photographer: string;

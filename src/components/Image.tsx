@@ -1,9 +1,11 @@
 import React, { useState, useEffect, LegacyRef } from "react";
 import { ImageProps } from "../types/ImageTypes";
+import ProgressiveImg from "./ProgressiveImage";
 
 const Image = ({
   toggleFavourite,
   id,
+  placeholderSrc,
   src,
   photographer,
   alt,
@@ -11,13 +13,11 @@ const Image = ({
   isLast,
 }: ImageProps) => {
   const [isFavourite, setIsFavourite] = useState(false);
-
   useEffect(() => {
     if (favourite.includes(id)) {
       setIsFavourite(true);
     } else setIsFavourite(false);
   }, [favourite]);
-
   return (
     <div ref={isLast as LegacyRef<HTMLDivElement>} className="image-wrapper">
       <div className="image-overlay">
@@ -39,7 +39,8 @@ const Image = ({
           </button>
         </div>
       </div>
-      <img loading="lazy" src={src} alt={alt as string} />
+      {/* <ProgressiveImg src={src} placeholderSrc={placeholderSrc} /> */}
+      <img loading="lazy" src={placeholderSrc} alt={alt as string} />
     </div>
   );
 };

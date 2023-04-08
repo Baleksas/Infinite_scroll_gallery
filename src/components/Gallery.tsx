@@ -34,7 +34,10 @@ const Gallery = () => {
           setPage((prevPage) => prevPage + 1);
         }
       });
-      if (node) observer.current.observe(node);
+      if (node) {
+        observer.current.observe(node);
+        console.log(node);
+      }
     },
     [loading, hasMore]
   );
@@ -52,7 +55,8 @@ const Gallery = () => {
               photographer={item.photographer}
               key={item.id}
               id={item.id}
-              src={item.src.tiny}
+              placeholderSrc={item.src.tiny}
+              src={item.src.large}
             />
           );
         })}

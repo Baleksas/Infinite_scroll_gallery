@@ -10,23 +10,22 @@ export default function useGetPhotos(pageNumber: number) {
 
   useEffect(() => {
     setLoading(true);
-
+    console.log("page number", pageNumber);
     client.photos
       .curated({ per_page: 10, page: pageNumber })
-      .then((data: Photos | ErrorResponse) => {
-        if ("photos" in data) {
-          // API FAULT
-          // [1+] pages first two images are from the previous page - duplicates
-          if (pageNumber > 0) {
-            data.photos.shift();
-            data.photos.shift();
-          }
-
-          setData((prevData): any => [...prevData, ...data.photos]);
-          setHasMore(data.photos.length > 0);
+      .then((data: any) => {
+        // API FAULT
+        // [1+] pages first two images are from the previous page - duplicates
+        if (pageNumber > 0) {
+          data.photos.shift();
+          data.photos.shift();
         }
+        console.log("setting data", data.photos);
+        setData((prevData): any => [...prevData, ...data.photos]);
+        setHasMore(data.photos.length > 0);
       })
       .catch((e) => {
+        console.log(e);
         setError(e);
       });
     return () => {};
