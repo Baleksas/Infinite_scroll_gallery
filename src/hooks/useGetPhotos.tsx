@@ -1,16 +1,17 @@
 import { useEffect, useState } from "react";
-import { createClient, Photos, ErrorResponse } from "pexels";
+import { createClient } from "pexels";
 const client = createClient(process.env.REACT_APP_API_KEY as string);
 
 export default function useGetPhotos(pageNumber: number) {
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string>();
+  const [error, setError] = useState(false);
   const [data, setData] = useState([]);
   const [hasMore, setHasMore] = useState(false);
 
   useEffect(() => {
     setLoading(true);
-    console.log("page number", pageNumber);
+    setError(false);
+
     client.photos
       .curated({ per_page: 10, page: pageNumber })
       .then((data: any) => {
@@ -20,13 +21,13 @@ export default function useGetPhotos(pageNumber: number) {
           data.photos.shift();
           data.photos.shift();
         }
-        console.log("setting data", data.photos);
+
         setData((prevData): any => [...prevData, ...data.photos]);
         setHasMore(data.photos.length > 0);
+        setLoading(false);
       })
       .catch((e) => {
-        console.log(e);
-        setError(e);
+        setError(true);
       });
     return () => {};
   }, [pageNumber]);
