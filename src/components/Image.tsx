@@ -38,7 +38,7 @@ const Image = ({
           </button>
         </div>
       </div>
-      <img src={src} alt={"alt"} />
+      <img src={src} alt={photographer} />
     </div>
   );
 };

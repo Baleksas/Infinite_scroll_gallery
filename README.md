@@ -50,3 +50,5 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 - Tech: React, CSS, Typescript and Jest
 
 - Lazy loading images (to be added)
+
+You can get Pexels API key here: [Pexels API Reference](https://www.pexels.com/api/documentation/)
