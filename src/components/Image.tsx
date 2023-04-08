@@ -6,6 +6,7 @@ const Image = ({
   id,
   src,
   photographer,
+  alt,
   favourite,
   isLast,
 }: ImageProps) => {
@@ -30,7 +31,7 @@ const Image = ({
           </button>
         </div>
       </div>
-      <img loading="lazy" src={src} alt={photographer} />
+      <img loading="lazy" src={src} alt={alt as string} />
     </div>
   );
 };

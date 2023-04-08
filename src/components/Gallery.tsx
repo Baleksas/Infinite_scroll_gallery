@@ -48,6 +48,7 @@ const Gallery = () => {
               isLast={data.length === index + 1 ? lastPhotoElement : null}
               toggleFavourite={toggleFavourite}
               favourite={favourite}
+              alt={item.alt}
               photographer={item.photographer}
               key={item.id}
               id={item.id}
