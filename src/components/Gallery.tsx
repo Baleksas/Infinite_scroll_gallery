@@ -1,7 +1,14 @@
-import React, { useEffect, useState, useRef, useCallback } from "react";
+import React, {
+  useEffect,
+  useState,
+  useRef,
+  useCallback,
+  LegacyRef,
+} from "react";
 import Image from "./Image";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import useGetPhotos from "../hooks/useGetPhotos";
+import { Photo } from "pexels";
 
 const Gallery = () => {
   const [page, setPage] = useState(1);
@@ -13,12 +20,13 @@ const Gallery = () => {
       setFavourite(newFav);
     } else setFavourite([...favourite, id]);
   };
+
   const { data, hasMore, loading, error } = useGetPhotos(page);
 
-  const observer = useRef<any>();
+  const observer = useRef<IntersectionObserver>();
 
   const lastPhotoElement = useCallback(
-    (node: any) => {
+    (node: HTMLElement) => {
       if (loading) return;
       if (observer.current) observer.current.disconnect();
       observer.current = new IntersectionObserver((entries) => {
@@ -34,7 +42,7 @@ const Gallery = () => {
   return (
     <div className="gallery">
       {data.length > 0 &&
-        data.map((item: any, index: number) => {
+        data.map((item: Photo, index: number) => {
           return (
             <Image
               isLast={data.length === index + 1 ? lastPhotoElement : null}

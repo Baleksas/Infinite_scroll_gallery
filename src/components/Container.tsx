@@ -1,6 +1,8 @@
-import React from "react";
+import React, { PropsWithChildren } from "react";
 
-const Container = ({ children }: any) => {
+interface IContainerProps extends PropsWithChildren {}
+
+const Container: React.FunctionComponent<IContainerProps> = ({ children }) => {
   return <div className="container">{children}</div>;
 };
 

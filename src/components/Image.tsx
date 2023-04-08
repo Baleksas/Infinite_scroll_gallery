@@ -1,13 +1,5 @@
-import React, { useState, useEffect, useCallback, useRef } from "react";
-
-type ImageProps = {
-  id: number;
-  src: string;
-  photographer: string;
-  favourite: number[];
-  toggleFavourite: any;
-  isLast: any;
-};
+import React, { useState, useEffect, LegacyRef } from "react";
+import { ImageProps } from "../types/ImageTypes";
 
 const Image = ({
   toggleFavourite,
@@ -26,7 +18,7 @@ const Image = ({
   }, [favourite]);
 
   return (
-    <div ref={isLast} className="image-wrapper">
+    <div ref={isLast as LegacyRef<HTMLDivElement>} className="image-wrapper">
       <div className="image-overlay">
         <div className="overlay-content">
           <span>{photographer}</span>
