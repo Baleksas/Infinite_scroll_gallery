@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const ProgressiveImg = ({ placeholderSrc, src }: any) => {
+const ProgressiveImg = ({ placeholderSrc, src, alt }: any) => {
   const [imgSrc, setImgSrc] = useState(placeholderSrc || src);
 
   useEffect(() => {
@@ -14,6 +14,8 @@ const ProgressiveImg = ({ placeholderSrc, src }: any) => {
   const customClass =
     placeholderSrc && imgSrc === placeholderSrc ? "loading" : "loaded";
 
-  return <img src={imgSrc} alt={""} className={`image ${customClass}`} />;
+  return (
+    <img src={imgSrc} alt={alt as string} className={`image ${customClass}`} />
+  );
 };
 export default ProgressiveImg;

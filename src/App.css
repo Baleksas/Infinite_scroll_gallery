@@ -33,8 +33,11 @@
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
+  z-index: 2;
 }
-
+.image-overlay:hover {
+  opacity: 1;
+}
 .overlay-content {
   width: max-content;
   margin: auto;
@@ -45,9 +48,6 @@
   text-align: center;
 }
 
-.image-overlay:hover {
-  opacity: 1;
-}
 .loading {
   filter: blur(10px);
   clip-path: inset(0);

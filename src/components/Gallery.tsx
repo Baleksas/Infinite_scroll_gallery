@@ -36,12 +36,11 @@ const Gallery = () => {
       });
       if (node) {
         observer.current.observe(node);
-        console.log(node);
       }
     },
     [loading, hasMore]
   );
-
+  console.log(data);
   return (
     <div className="gallery">
       {data.length > 0 &&
@@ -55,8 +54,8 @@ const Gallery = () => {
               photographer={item.photographer}
               key={item.id}
               id={item.id}
-              placeholderSrc={item.src.tiny}
-              src={item.src.large}
+              placeholderSrc={item.src.small}
+              src={item.src.original}
             />
           );
         })}

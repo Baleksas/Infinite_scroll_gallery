@@ -39,8 +39,12 @@ const Image = ({
           </button>
         </div>
       </div>
-      {/* <ProgressiveImg src={src} placeholderSrc={placeholderSrc} /> */}
-      <img loading="lazy" src={placeholderSrc} alt={alt as string} />
+      <ProgressiveImg
+        alt={alt as string}
+        src={src}
+        placeholderSrc={placeholderSrc}
+      />
+      {/* <img loading="lazy" src={src} alt={alt as string} /> */}
     </div>
   );
 };
