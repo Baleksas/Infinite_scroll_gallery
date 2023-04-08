@@ -13,7 +13,7 @@
   height: 100%;
 }
 .image-wrapper {
-  margin: 5px 5px;
+  margin: 10px 10px;
   position: relative;
   width: 100%;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
@@ -61,17 +61,21 @@
   margin: 0 auto;
   border-radius: 20px;
   cursor: pointer;
+  transition: all 0.2s ease-in-out;
 }
 
 .isFavourite {
-  background-color: #cfc929;
+  background-color: #ded95c;
 }
-@media (min-width: 576px) {
-  .container {
-    width: 95%;
+@media (min-width: 480px) {
+  .image-wrapper {
+    width: 45%;
   }
 }
 @media (min-width: 768px) {
+  .container {
+    width: 95%;
+  }
   .image-wrapper {
     width: 30%;
   }
@@ -81,6 +85,14 @@
     width: 92%;
   }
   .image-wrapper {
-    width: 23%;
+    width: 22%;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 90%;
+  }
+  .image-wrapper {
+    width: 18%;
   }
 }
