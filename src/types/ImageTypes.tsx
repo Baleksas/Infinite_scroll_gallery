@@ -1,10 +1,13 @@
-export type ImageProps = {
+export type ImageProps = ProgressiveImageProps & {
   id: number;
-  placeholderSrc: string;
-  src: string;
-  alt: string | null;
   photographer: string;
   favourite: number[];
   toggleFavourite: (id: number) => void;
   isLast: ((node: HTMLElement) => void) | null;
+};
+
+export type ProgressiveImageProps = {
+  src: string;
+  placeholderSrc: string;
+  alt: string | null;
 };

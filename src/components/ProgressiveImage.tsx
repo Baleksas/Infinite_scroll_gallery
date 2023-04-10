@@ -1,6 +1,11 @@
 import { useState, useEffect } from "react";
+import { ProgressiveImageProps } from "../types/ImageTypes";
 
-const ProgressiveImg = ({ placeholderSrc, src, alt }: any) => {
+const ProgressiveImg = ({
+  placeholderSrc,
+  src,
+  alt,
+}: ProgressiveImageProps) => {
   const [imgSrc, setImgSrc] = useState(placeholderSrc || src);
 
   useEffect(() => {
