@@ -32,8 +32,8 @@ const Image = ({
           )}
           <span>{photographer}</span>
           {alt === "" && <span className="divider"></span>}
-
           <button
+            data-testid="favourite-button"
             className={`${isFavourite && "isFavourite"} button-fav`}
             onClick={() => toggleFavourite(id)}
           >

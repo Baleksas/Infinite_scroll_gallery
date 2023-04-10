@@ -7,6 +7,7 @@ describe("Image component", () => {
   const defaultProps = {
     toggleFavourite: mockToggleFavourite,
     id: 1,
+    alt: "Nature",
     src: "https://example.com/image.jpg",
     photographer: "John Doe",
     favourite: [1, 2],
@@ -15,7 +16,7 @@ describe("Image component", () => {
 
   it("should render an image with photographer name and favourite button", () => {
     render(<Image {...defaultProps} />);
-    expect(screen.getByAltText("alt")).toBeInTheDocument();
+    expect(screen.getByAltText("Nature")).toBeInTheDocument();
     expect(screen.getByText("John Doe")).toBeInTheDocument();
     expect(screen.getByText("Favourite")).toBeInTheDocument();
   });
