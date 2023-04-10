@@ -13,11 +13,13 @@ const Image = ({
   isLast,
 }: ImageProps) => {
   const [isFavourite, setIsFavourite] = useState(false);
+
   useEffect(() => {
     if (favourite.includes(id)) {
       setIsFavourite(true);
     } else setIsFavourite(false);
   }, [favourite]);
+
   return (
     <div ref={isLast as LegacyRef<HTMLDivElement>} className="image-wrapper">
       <div className="image-overlay">
@@ -44,7 +46,6 @@ const Image = ({
         src={src}
         placeholderSrc={placeholderSrc}
       />
-      {/* <img loading="lazy" src={src} alt={alt as string} /> */}
     </div>
   );
 };

@@ -9,7 +9,7 @@ import Image from "./Image";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import useGetPhotos from "../hooks/useGetPhotos";
 import { Photo } from "pexels";
-
+import loadingGif from "../lib/loadingGif.gif";
 const Gallery = () => {
   const [page, setPage] = useState(1);
   const [favourite, setFavourite] = useLocalStorage<number[]>("favourite", []);
@@ -40,7 +40,6 @@ const Gallery = () => {
     },
     [loading, hasMore]
   );
-  console.log(data);
   return (
     <div className="gallery">
       {data.length > 0 &&
@@ -59,7 +58,11 @@ const Gallery = () => {
             />
           );
         })}
-      {loading && <div className="loading">Loading...</div>}
+      {loading && (
+        <div className="loading ">
+          <img src={loadingGif} alt="Loading..." />
+        </div>
+      )}
     </div>
   );
 };

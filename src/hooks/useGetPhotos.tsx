@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { createClient } from "pexels";
+import { ErrorResponse, Photo, Photos, createClient } from "pexels";
 const client = createClient(process.env.REACT_APP_API_KEY as string);
 
 export default function useGetPhotos(pageNumber: number) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<Photo[]>([]);
   const [hasMore, setHasMore] = useState(false);
 
   useEffect(() => {
@@ -14,17 +14,18 @@ export default function useGetPhotos(pageNumber: number) {
 
     client.photos
       .curated({ per_page: 10, page: pageNumber })
-      .then((data: any) => {
-        // API FAULT
+      .then((data: Photos | ErrorResponse) => {
         // [1+] pages first two images are from the previous page - duplicates
-        if (pageNumber > 0) {
-          data.photos.shift();
-          data.photos.shift();
-        }
+        if ("photos" in data) {
+          if (pageNumber > 0) {
+            data.photos.shift();
+            data.photos.shift();
+          }
 
-        setData((prevData): any => [...prevData, ...data.photos]);
-        setHasMore(data.photos.length > 0);
-        setLoading(false);
+          setData((prevData): Photo[] => [...prevData, ...data.photos]);
+          setHasMore(data.photos.length > 0);
+          setLoading(false);
+        }
       })
       .catch((e) => {
         setError(true);

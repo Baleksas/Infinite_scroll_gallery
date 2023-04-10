@@ -12,7 +12,7 @@ const ProgressiveImg = ({ placeholderSrc, src, alt }: any) => {
   }, [src]);
 
   const customClass =
-    placeholderSrc && imgSrc === placeholderSrc ? "loading" : "loaded";
+    placeholderSrc && imgSrc === placeholderSrc ? "loadingImg" : "loadedImg";
 
   return (
     <img src={imgSrc} alt={alt as string} className={`image ${customClass}`} />
