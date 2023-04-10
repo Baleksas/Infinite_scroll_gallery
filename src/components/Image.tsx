@@ -1,4 +1,4 @@
-import React, { useState, useEffect, LegacyRef } from "react";
+import React, { LegacyRef, useEffect, useState } from "react";
 import { ImageProps } from "../types/ImageTypes";
 import ProgressiveImg from "./ProgressiveImage";
 

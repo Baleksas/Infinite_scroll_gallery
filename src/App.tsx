@@ -1,8 +1,6 @@
-import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
-import Gallery from "./components/Gallery";
 import Container from "./components/Container";
+import Gallery from "./components/Gallery";
+import "./styles/App.css";
 
 function App() {
   return (

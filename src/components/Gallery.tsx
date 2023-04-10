@@ -1,15 +1,9 @@
-import React, {
-  useEffect,
-  useState,
-  useRef,
-  useCallback,
-  LegacyRef,
-} from "react";
-import Image from "./Image";
-import { useLocalStorage } from "../hooks/useLocalStorage";
-import useGetPhotos from "../hooks/useGetPhotos";
 import { Photo } from "pexels";
+import { useCallback, useRef, useState } from "react";
+import useGetPhotos from "../hooks/useGetPhotos";
+import { useLocalStorage } from "../hooks/useLocalStorage";
 import loadingGif from "../lib/loadingGif.gif";
+import Image from "./Image";
 const Gallery = () => {
   const [page, setPage] = useState(1);
   const [favourite, setFavourite] = useLocalStorage<number[]>("favourite", []);

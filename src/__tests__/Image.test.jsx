@@ -1,6 +1,7 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import Image from "../components/Image";
+import "@testing-library/jest-dom";
 
 describe("Image component", () => {
   const mockToggleFavourite = jest.fn();

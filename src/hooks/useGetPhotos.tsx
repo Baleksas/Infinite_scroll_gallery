@@ -28,9 +28,9 @@ export default function useGetPhotos(pageNumber: number) {
         }
       })
       .catch((e) => {
+        console.log(e);
         setError(true);
       });
-    return () => {};
   }, [pageNumber]);
 
   return { loading, error, data, hasMore };
