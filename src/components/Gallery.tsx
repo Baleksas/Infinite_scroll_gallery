@@ -17,7 +17,7 @@ const Gallery = () => {
 
   const { data, hasMore, loading, error } = useGetPhotos(page);
 
-  const observer = useRef<IntersectionObserver>();
+  const observer = useRef<IntersectionObserver>(null);
 
   const lastPhotoElement = useCallback(
     (node: HTMLElement) => {

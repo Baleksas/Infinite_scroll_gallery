@@ -10,7 +10,7 @@ const Image = ({
   photographer,
   alt,
   favourite,
-  isLast,
+  isLast
 }: ImageProps) => {
   const [isFavourite, setIsFavourite] = useState(false);
 
@@ -18,7 +18,7 @@ const Image = ({
     if (favourite.includes(id)) {
       setIsFavourite(true);
     } else setIsFavourite(false);
-  }, [favourite]);
+  }, [favourite, id]);
 
   return (
     <div ref={isLast as LegacyRef<HTMLDivElement>} className="image-wrapper">
