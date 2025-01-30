@@ -1,13 +1,45 @@
+/* Global Styles */
+body {
+  margin: 0;
+  background-color: rgb(196, 196, 196);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+/* Container */
 .container {
   width: 100%;
   margin: 0 auto;
 }
+
+/* Gallery */
 .gallery {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   margin: 0 auto;
 }
+
+/* Error Message */
+.error {
+  font-size: large;
+  color: rgb(189, 82, 82);
+  text-align: center;
+  margin: 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
 /* Image */
 .image-wrapper img {
   width: 100%;
