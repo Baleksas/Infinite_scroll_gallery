@@ -34,6 +34,15 @@ const Gallery = () => {
     },
     [loading, hasMore]
   );
+
+  if (error) {
+    return (
+      <div className="error">
+        Error loading photos. Contact the developer: https://github.com/Baleksas
+      </div>
+    );
+  }
+
   return (
     <div className="gallery">
       {data.length > 0 &&
